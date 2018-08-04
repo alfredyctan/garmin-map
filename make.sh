@@ -1,12 +1,12 @@
 #!/bin/bash
 
-if [ $# -lt 2 ]; then
-	echo "usage: $0 <env> <option>"
+if [ $# -lt 1 ]; then
+	echo "usage: $0 <map name>"
 	exit;
 fi
 
-ENV=$1
-OPTION=$2
+ENV=$1.env
+OPTION=$1.option
 
 . $ENV
 

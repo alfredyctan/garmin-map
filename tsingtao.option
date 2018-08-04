@@ -2,9 +2,9 @@ output-dir=gmap
 gmapsupp
 cycle-map
 mapname=85200005
-description=CN Hong Kong 2018.08 OSM
-country-name=Hong Kong
-country-abbr=HK
+description=CN Tsing Tao 2018.06 OSM
+country-name=China
+country-abbr=CN
 code-page=950
 index
 verbose
