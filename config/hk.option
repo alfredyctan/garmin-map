@@ -1,12 +1,16 @@
 output-dir=gmap 
 gmapsupp
-cycle-map
+index
 mapname=85200005
-description=CN Hong Kong 2018.08 OSM
+description=ZH Hong Kong 2018.08 OSM
 country-name=Hong Kong
 country-abbr=HK
 code-page=950
-index
 verbose
 overview-levels=0:24, 1:22, 2:20, 3:18, 4:16, 5:14, 6:12, 7:10
 generate-sea=multipolygon
+route
+drive-on=detect,left
+check-roundabouts
+cycle-map
+make-opposite-cycleways

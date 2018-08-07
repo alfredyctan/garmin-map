@@ -4,7 +4,7 @@ if [ $# -lt 1 ]; then
 	echo "usage: $0 <map name>"
 	exit;
 fi
-
+MAP=$(basename $1)
 ENV=$1.env
 OPTION=$1.option
 
@@ -30,7 +30,7 @@ srtm2osm/Srtm2Osm.exe -d srtm.cache -cat 400 100 -large -corrxy 0.0005 0.0006 -b
 
 #===========================
 echo "downloading Open Street Map Data for $MAP map"
-curl --output osm/$MAP.osm https://overpass-api.de/api/map?bbox=$WEST,$SOUTH,$EAST,$NORTH
+#curl --output osm/$MAP.osm https://overpass-api.de/api/map?bbox=$WEST,$SOUTH,$EAST,$NORTH
 
 #===========================
 # download mkgmap from http://www.mkgmap.org.uk/ and put to garmin/mkgmap

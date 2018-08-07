@@ -1,0 +1,16 @@
+output-dir=gmap 
+gmapsupp
+index
+mapname=3300005
+description=FR France Medoc 2018.08 OSM
+country-name=France
+country-abbr=FR
+code-page=950
+verbose
+overview-levels=0:24, 1:22, 2:20, 3:18, 4:16, 5:14, 6:12, 7:10
+generate-sea=multipolygon
+route
+drive-on=detect,left
+check-roundabouts
+cycle-map
+make-opposite-cycleways
