@@ -2,7 +2,7 @@ output-dir=gmap
 gmapsupp
 index
 mapname=3300005
-description=FR France Medoc 2018.08 OSM
+description=EN France Medoc 2018.08 OSM
 country-name=France
 country-abbr=FR
 code-page=950
