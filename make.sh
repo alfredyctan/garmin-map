@@ -1,9 +1,30 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-	echo "usage: $0 <map name>"
+	echo "usage: $0 <-s> <-o> <-g> <map name>"
 	exit;
 fi
+
+while getopts "sog" OPT;
+do
+	case $OPT in
+	s)
+		SKIP_STRM="Y"
+		;;
+	o)
+		SKIP_OSM="Y"
+		;;
+	g)
+		SKIP_GMAP="Y"
+		;;
+	*)
+		usage
+		exit 1
+		;;
+	esac
+done
+shift $((OPTIND-1))
+
 MAP=$(basename $1)
 ENV=$1.env
 OPTION=$1.option
@@ -26,21 +47,30 @@ rm -rf gmap\*.*
 # http://www.viewfinderpanoramas.org/Coverage%20map%20viewfinderpanoramas_org3.htm
 # to srtm.cache, eg. srtm.cache/SrtmCache/N09E124.hgt
 #===========================
-srtm2osm/Srtm2Osm.exe -d srtm.cache -cat 400 100 -large -corrxy 0.0005 0.0006 -bounds1 $SOUTH $WEST $NORTH $EAST -o srtm/srtm-${MAP}.osm
+if [ "$SKIP_STRM" != "Y" ]; then
+	echo "creating dem layer"
+	srtm2osm/Srtm2Osm.exe -d srtm.cache -cat 400 100 -large -corrxy 0.0005 0.0006 -bounds1 $SOUTH $WEST $NORTH $EAST -o srtm/srtm-${MAP}.osm
+fi
 
 #===========================
-echo "downloading Open Street Map Data for $MAP map"
-#curl --output osm/$MAP.osm https://overpass-api.de/api/map?bbox=$WEST,$SOUTH,$EAST,$NORTH
+if [ "$SKIP_OSM" != "Y" ]; then
+	echo "downloading Open Street Map Data for $MAP map"
+	curl --output osm/$MAP.osm https://overpass-api.de/api/map?bbox=$WEST,$SOUTH,$EAST,$NORTH
+fi
 
 #===========================
 # download mkgmap from http://www.mkgmap.org.uk/ and put to garmin/mkgmap
 # compile osm source and topo source
 #===========================
-java -Xmx1g -jar mkgmap/${MKGMAP}/mkgmap.jar -c $OPTION srtm/srtm-$MAP.osm osm/$MAP.osm
+if [ "$SKIP_GMAP" != "Y" ]; then
+	java -Xmx8g -jar mkgmap/${MKGMAP}/mkgmap.jar -c $OPTION osm/$MAP.pbf
 
-#==== rename the output and done ====
-mv gmap/gmapsupp.img gmap/gmapsupp-$MAP.img
-
-echo "gmap/gmapsupp-$MAP.img is created"
-
+	#==== rename the output and done ====
+	if [ -f "gmap/gmapsupp.img" ]; then 
+		mv gmap/gmapsupp.img gmap/gmapsupp-$MAP.img
+		echo "gmap/gmapsupp-$MAP.img is created"
+	else
+		echo "no map created"
+	fi
+fi
 
