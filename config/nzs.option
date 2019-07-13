@@ -1,10 +1,10 @@
 output-dir=gmap 
 gmapsupp
 index
-mapname=85200005
-description=ZH Hong Kong 2018.09 OSM
-country-name=Hong Kong
-country-abbr=HK
+mapname=6400002
+description=ZH New Zealand South 2019.02 OSM
+country-name=New Zealand
+country-abbr=nz
 code-page=950
 verbose
 overview-levels=0:24, 1:22, 2:20, 3:18, 4:16, 5:14, 6:12, 7:10
@@ -15,4 +15,4 @@ check-roundabouts
 cycle-map
 make-opposite-cycleways
 name-tag-list=name:zh,name:en,name
-family-name=ZH Hong Kong 2018.09 OSM
+family-name=ZH New Zealand South 2019.02 OSM

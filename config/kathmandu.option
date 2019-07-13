@@ -1,0 +1,20 @@
+output-dir=gmap 
+gmapsupp
+index
+mapname=97700001
+description=EN Kathmandu 2019.03 OSM
+country-name=Nepal
+country-abbr=NP
+code-page=950
+verbose
+overview-levels=0:23, 1:22, 2:20, 3:18, 4:16, 5:14, 6:12, 7:10
+generate-sea=multipolygon
+route
+drive-on=detect,left
+check-roundabouts
+cycle-map
+make-opposite-cycleways
+name-tag-list=name:en,name
+family-name=EN Kathmandu 2019.03 OSM
+family-id=977
+product-id=1

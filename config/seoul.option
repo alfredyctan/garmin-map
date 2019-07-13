@@ -1,10 +1,10 @@
 output-dir=gmap 
 gmapsupp
 index
-mapname=85200005
-description=ZH Hong Kong 2018.09 OSM
-country-name=Hong Kong
-country-abbr=HK
+mapname=08200005
+description=EN Seoul 2019.05 OSM
+country-name=Korea
+country-abbr=KR
 code-page=950
 verbose
 overview-levels=0:24, 1:22, 2:20, 3:18, 4:16, 5:14, 6:12, 7:10
@@ -14,5 +14,5 @@ drive-on=detect,left
 check-roundabouts
 cycle-map
 make-opposite-cycleways
-name-tag-list=name:zh,name:en,name
-family-name=ZH Hong Kong 2018.09 OSM
+name-tag-list=name:en,name
+family-name=EN Seoul 2019.05 OSM

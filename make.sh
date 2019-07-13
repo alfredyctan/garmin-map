@@ -63,7 +63,7 @@ fi
 # compile osm source and topo source
 #===========================
 if [ "$SKIP_GMAP" != "Y" ]; then
-	java -Xmx8g -jar mkgmap/${MKGMAP}/mkgmap.jar -c $OPTION osm/$MAP.pbf
+	java -Xmx8g -jar mkgmap/${MKGMAP}/mkgmap.jar -c $OPTION osm/$MAP.osm
 
 	#==== rename the output and done ====
 	if [ -f "gmap/gmapsupp.img" ]; then 
