@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 1 ]; then
-	echo "usage: $0 <-s> <-o> <-g> <map name>"
+	echo "usage: $0 <-s:skip srtm> <-o:skip osm download> <-g:skip gamp create> <map name>"
 	exit;
 fi
 
@@ -30,6 +30,13 @@ ENV=$1.env
 OPTION=$1.option
 
 . $ENV
+
+SIZE=`echo - | awk "{print (($EAST - $WEST) * ($NORTH - $SOUTH)) }"`
+MAX=0.5
+if [ `echo - | awk "{print ($SIZE > $MAX) }"` == "1" ]; then
+	echo "map size $SIZE too big to create, max is $MAX"
+	exit
+fi
 
 #===========================
 # remove the output 
