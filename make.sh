@@ -36,6 +36,8 @@ MAX=0.5
 if [ `echo - | awk "{print ($SIZE > $MAX) }"` == "1" ]; then
 	echo "map size $SIZE too big to create, max is $MAX"
 	exit
+else
+	echo "map size $SIZE"
 fi
 
 #===========================

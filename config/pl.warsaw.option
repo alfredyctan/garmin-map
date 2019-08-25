@@ -1,8 +1,8 @@
 output-dir=gmap 
 gmapsupp
 index
-mapname=4800010
-description=EN Poland Krakow 2019.07777777 OSM
+mapname=4800005
+description=PL Warsaw 2019.08 OSM
 country-name=Poland
 country-abbr=PL
 code-page=950
@@ -15,4 +15,4 @@ check-roundabouts
 cycle-map
 make-opposite-cycleways
 name-tag-list=name:en,name
-family-name=EN Poland Krakow 2019.07 OSM
+family-name=PL Warsaw 2019.08 OSM
